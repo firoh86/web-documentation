@@ -1,0 +1,13 @@
+:root {
+    --submenu-height: 78px;
+}
+
+body {
+    margin: 0;
+    color: white;
+    background-color: #1b1b1b;
+}
+
+.content {
+    display: flex;
+}

@@ -1,0 +1,15 @@
+.main {
+    flex-grow: 1;
+    margin-top: 4rem;
+    margin-left: 250px;
+    padding-top: 20px;
+    padding-right: 10vw;
+    font-family: Arial;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 400px;
+}
+
+h1 {
+    color: #f8c555;
+}
