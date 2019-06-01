@@ -37,5 +37,8 @@ controller.getContent = (req, res, next) => {
     })
 }
 
-
+controller.insertContent = (req, res, next) => {
+    //rutas de insercion a la base de datos
+    // conn.query(`INSERT INTO menus  `)
+}
 module.exports = controller

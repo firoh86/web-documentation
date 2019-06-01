@@ -51,3 +51,8 @@ body {
     width: 50%;
     background-color: rgb(44, 47, 59);
 }
+
+.form__field-label {
+    display: flex;
+    justify-content: space-between;
+}

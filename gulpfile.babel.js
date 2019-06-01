@@ -39,7 +39,7 @@ gulp.task('html', () => {
 //tarea para el js
 gulp.task("scripts", () => {
     return gulp
-        .src("./server/js/*.js")
+        .src("server/js/*.js")
         .pipe(plumber())
         .pipe(
             babel({

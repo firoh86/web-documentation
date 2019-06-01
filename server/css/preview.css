@@ -1,0 +1,7 @@
+.container__preview {
+    padding: 0 20px;
+}
+
+.container__preview p, .container__preview code {
+    font-size: 1.5em;
+}

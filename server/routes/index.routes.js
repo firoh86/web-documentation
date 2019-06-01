@@ -10,5 +10,5 @@ const controller = require("../controllers/index.controller")
 router.get('/', controller.index)
 router.get('/getMenus', controller.getMenus)
 router.get('/getContent/:id', controller.getContent)
-
+router.post('/insertContent', controller.insertContent)
 module.exports = router
