@@ -1,6 +1,7 @@
 const connection = require('../db_connection/connection')
 const conn = connection()
 
+
 // Es un objeto en el cual se crean las funciones que se ejecutan a través del enrutador.
 const controller = {}
 
@@ -38,7 +39,12 @@ controller.getContent = (req, res, next) => {
 }
 
 controller.insertContent = (req, res, next) => {
-    //rutas de insercion a la base de datos
-    // conn.query(`INSERT INTO menus  `)
+    //La propiedad body es un array que siempre guarda los datos que vienen a traves de post
+    console.log(req.body);
+    // console.log(JSON.parse(req.body));
+    res.send('ok')
+
+
 }
+
 module.exports = controller

@@ -10,7 +10,7 @@ const titleButton = document.getElementById('title-button')
 const sectionTitleButton = document.getElementById('section-title-button')
 const sectionParagraphButton = document.getElementById('section-paragraph-button')
 const codeParagraphButton = document.getElementById('code-paragraph-button')
-
+const buttonInsert = document.getElementById('submitForm')
 
 //constructor de pagina para subir a las bases de datos
 const finalTitle = []
@@ -22,9 +22,9 @@ const completDocument = []
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
-        console.log('titulo final =' + finalTitle);
-        if (sectionTitles.length > 0) console.log('subtitulos de seccion =' + sectionTitles);
-        console.log('documento completo =' + completDocument);
+        // console.log('titulo final =' + finalTitle);
+        // if (sectionTitles.length > 0) console.log('subtitulos de seccion =' + sectionTitles);
+        // console.log('documento completo =' + completDocument);
     })
     titleButton.addEventListener('click', (e) => {
 
@@ -51,9 +51,32 @@ if (form) {
         completDocument.push(`<pre><code class='language-css'>${codeParagraph.value}</code></pre>`)
         codeParagraph.value = ''
     })
+    buttonInsert.addEventListener('click', (e) => {
+        console.log('boton correcto');
+
+        sendInfo(finalTitle, sectionTitles, completDocument)
+    })
 
 }
 
 
+const sendInfo = (titles, sections, completDoc) => {
+
+
+    const data = {
+        titles,
+        sections,
+        completDoc
+    }
+
+    let xhr
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+    else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+
+    xhr.open("POST", "/insertContent", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhr.send(JSON.stringify(data))
+
+}
 
 

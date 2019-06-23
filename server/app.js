@@ -10,9 +10,10 @@ app.set('views', path.join(__dirname, '/views'))
 
 // Middlewares
 //app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use('', require('./routes/index.routes'))
+app.use(express.json())
 
 
 //Errors
