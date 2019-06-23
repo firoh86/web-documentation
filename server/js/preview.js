@@ -69,5 +69,3 @@ const sendInfo = (titles, sections, completDoc) => {
         .then(res => res.json())
         .then(data => console.log(data))
 }
-
-
