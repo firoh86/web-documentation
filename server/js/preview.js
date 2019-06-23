@@ -58,13 +58,6 @@ if (form) {
 
 }
 
-/*  if(data.ok=='true'){
-     location.reload()
- }else null
- 
- data.ok == 'true' ? location.reload() : null)
- */
-
 const sendInfo = (titles, sections, completDoc) => {
     fetch('/insertContent', {
         method: 'post',

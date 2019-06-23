@@ -51,13 +51,6 @@ if (form) {
     sendInfo(finalTitle, sectionTitles, completDocument);
   });
 }
-/*  if(data.ok=='true'){
-     location.reload()
- }else null
- 
- data.ok == 'true' ? location.reload() : null)
- */
-
 
 var sendInfo = function sendInfo(titles, sections, completDoc) {
   fetch('/insertContent', {
