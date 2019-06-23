@@ -52,8 +52,6 @@ if (form) {
         codeParagraph.value = ''
     })
     buttonInsert.addEventListener('click', (e) => {
-        console.log('boton correcto');
-
         sendInfo(finalTitle, sectionTitles, completDocument)
     })
 
@@ -61,39 +59,15 @@ if (form) {
 
 
 const sendInfo = (titles, sections, completDoc) => {
-
-
-    /*     const data = {
-            titles,
-            sections,
-            completDoc
-        }
-        console.log('llega');
-        let xhr
-        if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-        else xhr = new ActiveXObject("Microsoft.XMLHTTP")
-    
-        
-        xhr.open('POST', '/insertContent', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-        xhr.send(JSON.stringify(data)) */
-
-    console.log(JSON.stringify(titles));
-
-    axios({
-        method: 'POST',
-        url: '/insertContent',
-        params: {
-            text: 'hola mundo'
-            /* title: titles,
-             section: sections,
-             doc: completDoc  */
-        }
-    }).then(res => console.log(res.data))
-        .catch(err => console.log(err))
-
-
-
+    fetch('/insertContent', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ titles, sections, completDoc })
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
 }
 
 

@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser')
 
 // Intializations
 const app = express()
@@ -9,11 +10,14 @@ app.set('port', process.env.PORT || 80)
 app.set('views', path.join(__dirname, '/views'))
 
 // Middlewares
-//app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }))
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('', require('./routes/index.routes'))
-app.use(express.json())
 
 
 //Errors

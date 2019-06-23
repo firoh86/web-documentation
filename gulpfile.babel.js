@@ -47,7 +47,7 @@ gulp.task("scripts", () => {
             })
         )
         .pipe(concat("scripts-min.js"))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest("./public/js"))
 })
 

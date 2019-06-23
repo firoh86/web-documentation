@@ -1,6 +1,6 @@
 // guarda los ultimos menús seleccionados para no repetir
 let menuNoRepeat
-// 
+
 const menu = document.getElementById('menu')
 if (menu) {
     addEventListener('load', () => {
