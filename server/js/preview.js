@@ -31,12 +31,13 @@ if (form) {
         preview.innerHTML = `<h1>${title.value}</h1>`
         completDocument[0] = `<h1>${title.value}</h1>`
         finalTitle[0] = `<h1>${title.value}</h1>`
+        finalTitle[1] = title.value
         title.value = ''
 
     })
     sectionTitleButton.addEventListener('click', (e) => {
         preview.innerHTML += `<h2>${sectionTitle.value}</h2>`
-        sectionTitles.push(`<h2>${sectionTitle.value}</h2>`)
+        sectionTitles.push(sectionTitle.value)
         completDocument.push(`<h2>${sectionTitle.value}</h2>`)
         sectionTitle.value = ''
     })
@@ -57,6 +58,12 @@ if (form) {
 
 }
 
+/*  if(data.ok=='true'){
+     location.reload()
+ }else null
+ 
+ data.ok == 'true' ? location.reload() : null)
+ */
 
 const sendInfo = (titles, sections, completDoc) => {
     fetch('/insertContent', {
@@ -65,9 +72,11 @@ const sendInfo = (titles, sections, completDoc) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ titles, sections, completDoc })
+
     })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => data.ok == 'true' ? location.reload() : null)
+
 }
 
 

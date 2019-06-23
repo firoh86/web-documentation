@@ -28,11 +28,12 @@ if (form) {
     preview.innerHTML = "<h1>".concat(title.value, "</h1>");
     completDocument[0] = "<h1>".concat(title.value, "</h1>");
     finalTitle[0] = "<h1>".concat(title.value, "</h1>");
+    finalTitle[1] = title.value;
     title.value = '';
   });
   sectionTitleButton.addEventListener('click', function (e) {
     preview.innerHTML += "<h2>".concat(sectionTitle.value, "</h2>");
-    sectionTitles.push("<h2>".concat(sectionTitle.value, "</h2>"));
+    sectionTitles.push(sectionTitle.value);
     completDocument.push("<h2>".concat(sectionTitle.value, "</h2>"));
     sectionTitle.value = '';
   });
@@ -50,6 +51,13 @@ if (form) {
     sendInfo(finalTitle, sectionTitles, completDocument);
   });
 }
+/*  if(data.ok=='true'){
+     location.reload()
+ }else null
+ 
+ data.ok == 'true' ? location.reload() : null)
+ */
+
 
 var sendInfo = function sendInfo(titles, sections, completDoc) {
   fetch('/insertContent', {
@@ -65,7 +73,7 @@ var sendInfo = function sendInfo(titles, sections, completDoc) {
   }).then(function (res) {
     return res.json();
   }).then(function (data) {
-    return console.log(data);
+    return data.ok == 'true' ? location.reload() : null;
   });
 };
 "use strict";
