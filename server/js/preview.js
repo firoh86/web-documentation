@@ -63,19 +63,36 @@ if (form) {
 const sendInfo = (titles, sections, completDoc) => {
 
 
-    const data = {
-        titles,
-        sections,
-        completDoc
-    }
+    /*     const data = {
+            titles,
+            sections,
+            completDoc
+        }
+        console.log('llega');
+        let xhr
+        if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
+        else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+    
+        
+        xhr.open('POST', '/insertContent', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        xhr.send(JSON.stringify(data)) */
 
-    let xhr
-    if (window.XMLHttpRequest) xhr = new XMLHttpRequest()
-    else xhr = new ActiveXObject("Microsoft.XMLHTTP")
+    console.log(JSON.stringify(titles));
 
-    xhr.open("POST", "/insertContent", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    xhr.send(JSON.stringify(data))
+    axios({
+        method: 'POST',
+        url: '/insertContent',
+        params: {
+            text: 'hola mundo'
+            /* title: titles,
+             section: sections,
+             doc: completDoc  */
+        }
+    }).then(res => console.log(res.data))
+        .catch(err => console.log(err))
+
+
 
 }
 

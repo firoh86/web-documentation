@@ -40,9 +40,13 @@ controller.getContent = (req, res, next) => {
 
 controller.insertContent = (req, res, next) => {
     //La propiedad body es un array que siempre guarda los datos que vienen a traves de post
-    console.log(req.body);
-    // console.log(JSON.parse(req.body));
+    /* console.log(req.body);
+    console.log(JSON.parse(req.body)); */
+
+
+    console.log(req.query);
     res.send('ok')
+
 
 
 }
