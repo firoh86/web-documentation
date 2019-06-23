@@ -57,7 +57,6 @@ if (form) {
 
 }
 
-
 const sendInfo = (titles, sections, completDoc) => {
     fetch('/insertContent', {
         method: 'post',
